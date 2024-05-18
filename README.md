@@ -22,7 +22,7 @@ Para usar este script, siga os passos abaixo:
 
 Clone este repositório para o seu computador.
 Navegue até a pasta do projeto.
-Execute o script Python com o comando python script.py.
+Execute o script Python com o comando python extrair_dados.py.
 O script irá abrir uma janela do navegador, navegar até o site SteamDB, selecionar a opção para exibir todos os resultados na página, e então raspar os dados da tabela de vendas. Os dados raspados serão salvos em um arquivo Parquet chamado dados.parquet.
 
 ## Notas
