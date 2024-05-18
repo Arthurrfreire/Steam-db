@@ -24,8 +24,6 @@ table = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_S
 rows = table.find_elements(By.CSS_SELECTOR, 'tr')
 for row in rows:
     cols = row.find_elements(By.CSS_SELECTOR, 'td')
-
-   
     cols_text = [col.text for col in cols]
     data.append(cols_text)
 df = pd.DataFrame(data)
