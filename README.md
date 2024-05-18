@@ -1,6 +1,6 @@
 # Web Scraping com Selenium
 
-Este projeto é um exemplo de como usar o Selenium para raspar dados de um site. Neste caso, estamos raspando dados do site SteamDB.
+Este projeto utiliza o Selenium para raspar dados de um site. Neste caso, estou raspando dados do site SteamDB.
 
 ## Dependências
 
