@@ -1,29 +1,51 @@
-# Web Scraping com Selenium
+## Extração de Dados de Vendas da SteamDB com Selenium e Armazenamento em Parquet
 
-Este projeto utiliza o Selenium para raspar dados de um site.
+Este projeto utiliza o Selenium para automatizar a extração de dados de vendas em andamento no site SteamDB, formatá-los em um DataFrame Pandas e, em seguida, armazená-los em um arquivo Parquet de alta performance para futuras análises.
+Estrutura do Projeto
+
+    README.md: Este arquivo de documentação.
+    steam_sales_scraper.py: Script Python contendo o código para extração e armazenamento dos dados.
 
 ## Dependências
 
-Este projeto depende das seguintes bibliotecas Python:
+Certifique-se de ter as seguintes bibliotecas Python instaladas:
 
-- Selenium
-- pandas
-- pyarrow
-- webdriver_manager
+    pandas
+    pyarrow
+    selenium
+    webdriver-manager
 
-## Instalação
+## Funcionamento
 
-Você pode instalar todas as dependências com o seguinte comando:
+    Configuração do WebDriver:
+        O script instala automaticamente o ChromeDriver necessário.
+        Um driver do Chrome é inicializado.
 
-pip install selenium pandas pyarrow webdriver_manager
+    Navegação e Interação com a Página:
+        O driver acessa a página de vendas da SteamDB.
+        Espera-se que a página carregue completamente e o menu dropdown de exibição de itens por página seja exibido.
+        O menu dropdown é clicado, e a opção de exibir todos os itens é selecionada.
+        É adicionado um pequeno atraso para garantir que todos os dados sejam carregados.
 
-## Como usar
-Para usar este script, siga os passos abaixo:
+    Extração dos Dados:
+        A tabela de vendas é localizada na página.
+        O script percorre as linhas da tabela, extraindo o texto de cada célula (coluna) e armazenando em uma lista.
 
-Clone este repositório para o seu computador.
-Navegue até a pasta do projeto.
-Execute o script Python com o comando python extrair_dados.py.
-O script irá abrir uma janela do navegador, navegar até o site SteamDB, selecionar a opção para exibir todos os resultados na página, e então raspar os dados da tabela de vendas. Os dados raspados serão salvos em um arquivo Parquet chamado dados.parquet.
+    Formatação e Armazenamento em Parquet:
+        A lista de dados extraídos é transformada em um DataFrame Pandas.
+        O DataFrame é salvo em um arquivo Parquet chamado dados.parquet, utilizando o motor PyArrow para otimizar o desempenho.
 
-## Notas
-Este script foi testado no Windows com o Google Chrome. Se você estiver usando um sistema operacional ou navegador diferente, pode ser necessário ajustar o código para funcionar corretamente.
+    Encerramento do WebDriver:
+        O driver do Chrome é encerrado para liberar recursos.
+
+## Utilização
+
+    Certifique-se de ter as dependências instaladas (veja a seção "Dependências").
+    Execute o script steam_sales_scraper.py.
+    O arquivo dados.parquet será criado na mesma pasta do script, contendo os dados das vendas extraídos.
+
+## Observações
+
+    Este script é sensível a mudanças na estrutura da página da SteamDB. Caso o site seja atualizado, o código pode precisar de ajustes para funcionar corretamente.
+    A extração de dados em grande escala pode ser limitada por mecanismos de proteção contra bots do site.
+    O uso de um arquivo Parquet permite um armazenamento eficiente e uma leitura rápida dos dados para futuras análises com Pandas ou outras ferramentas compatíveis.
