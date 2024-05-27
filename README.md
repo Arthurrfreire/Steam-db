@@ -1,7 +1,8 @@
 ## Extração de Dados de Vendas da SteamDB com Selenium e Armazenamento em Parquet
 
 Este projeto utiliza o Selenium para automatizar a extração de dados de vendas em andamento no site SteamDB, formatá-los em um DataFrame Pandas e, em seguida, armazená-los em um arquivo Parquet de alta performance para futuras análises.
-Estrutura do Projeto
+
+## Estrutura do Projeto
 
     README.md: Este arquivo de documentação.
     steam_sales_scraper.py: Script Python contendo o código para extração e armazenamento dos dados.
